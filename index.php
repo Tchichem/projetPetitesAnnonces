@@ -49,8 +49,8 @@ echo "</br>"; ?>
 
     <button type="submit">OK</button>
 </form>
-	<a href="index.php">Créer un compte </a></br>
-	<a href="signup.php"> J'ai oublié mes identifiants </a>
+	<a href="signup.php">Créer un compte </a></br>
+	<a href="forgot.php"> J'ai oublié mes identifiants </a>
 <?php } 
 if (isset($_POST["login"])){
 	if ($_POST["login"]=="admin" && $_POST["mdp"]=="admin"){
