@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ?>
 
-<fieldset>
+
 <div id="left">	
 	<ul>
 	<li><a href="index.php">Accueil</a></li>

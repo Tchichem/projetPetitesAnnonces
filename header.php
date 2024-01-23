@@ -18,5 +18,5 @@ Recherche par mots clés:
 </div>
 
 
-<body>
+<body><fieldset>
     
