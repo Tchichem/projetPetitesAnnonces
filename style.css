@@ -1,0 +1,19 @@
+
+body {
+	 background-color: #ffffff;
+	 font-family: Trebuchet MS, Verdana, Arial;
+	 text-align: center;
+ 	 background-repeat: no-repeat ;
+ 	 background-attachment: fixed ; } 
+#top {
+		background-image: "annonce.jpg";
+		background-size: cover;
+		width: 200px;
+		height: 200px;
+}
+#left {
+	float: left;
+}
+#right {
+	text-align: center;
+}
