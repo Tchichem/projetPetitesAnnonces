@@ -1,14 +1,5 @@
-<?php include 'header.php';
-session_start();
-error_reporting(E_ALL);
-?>
-
-
+<?php include 'header.php'; ?>
 <div id="left">	
-	<ul>
-	<li><a href="index.php">Accueil</a></li>
-	<li><a href="javascript:history.go(-1)">Retour</a></li>
-</ul>
 <h2>Catégories</h2>
 <ul>
 <li><a> Véhicule </a></li>
