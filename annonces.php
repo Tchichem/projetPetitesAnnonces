@@ -1,16 +1,11 @@
 <?php
 
-// Import de functions.php
 require_once("functions.php");
 try {
-    // Récupération des annonces avec la fonction getAnnonces() définie dans functions.php
  $annonces=getAnnonces();
 } catch (Exception $e) {
-    // Afficher le message en cas d'envoi d'exception
     echo $e->getMessage();
-}
-
-?>
+} ?>
 
 <?php require_once 'header.php' ?>
 
