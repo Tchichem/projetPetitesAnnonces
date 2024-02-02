@@ -21,9 +21,10 @@
 		<a class="button" href="?p=signup">Se connecter</a>
 		<?php else:?>
 		<a class="button" href="?p=deconnect">Se déconnecter</a>
+		<a class="button" href="annonces.php?p=annonce-form">Poster une annonce</a>
 		<?php endif;?>
 	</div>
-?>
+
 </ul>
 </div>
 </fieldset>
