@@ -1,60 +1,57 @@
-<?php include 'header.php'; ?>
-<div id="left">	
-<h2>Catégories</h2>
-<ul>
-<li><a> Véhicule </a></li>
-<li><a> Immobilier </a></li>
-<li><a> Emploi </a></li>
-<li><a> Rencontre </a></li>
-<li><a> Mode </a></li>
-<li><a> Objets </a></li>
-<li><a> Animaux </a></li>
+<?php
+session_start();
+require_once "functions.php";
 
-<li><a href='annonces.php' role='button'>Toutes les annonces</a></li>
-</ul>
-</div>
-<div id="right">
-<ul>
-<?php 
-if (isset($_SESSION["user"])){ ?>
-	<li><a href='login.php' role='button'> Panneau d'administration </a></li>
-	<li><a> Modifier annonces </a></li>
-	<li><a> Créer annonce </a></li>
-    <li><form method="post">
-    <input type="submit" name="deconnect" value="Déconnexion" />
-</form>
-</ul>
-<?php if (isset($_POST["deconnect"])){
-    session_destroy();
-    header('Location: index.php');
+
+$p= $_GET['p'] ?? "";
+
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+	$action= $_POST['action'] ?? "";
+	switch ($action){
+		case 'signup':
+			$message=addUser();
+			break;
+		case 'login':
+			$message=logUser();
+			$p="home";
+			break;
+		case 'forgot':
+			$message=waitReset();
+			$p="home";
+			break;
+		case 'reset':
+			$message=resetPwd();
+			$p="signup";
+	}
 }
-echo "</br>"; ?>
-    <?php } elseif (empty($_SESSION["user"])){ ?>
-		<h1>Connexion</h1>
-<form action="index.php" method="post">
-    <label for="login">Identifiant : </label>
-    <input name="login" id="login" type="text">
-</br>
-    <label for="mdp">Mot de passe : </label>
-    <input name="mdp" id="mdp" type="password">
 
-    <button type="submit">OK</button>
-</form>
-	<a href="signup.php">Créer un compte </a></br>
-	<a href="forgot.php"> J'ai oublié mes identifiants </a>
-<?php } 
-if (isset($_POST["login"])){
-	if ($_POST["login"]=="admin" && $_POST["mdp"]=="admin"){
-	$_SESSION["user"]=$_POST["login"];
-	} else {
-	   if ($_POST["login"]!="admin" && $_POST["mdp"]!="admin"){
-	   echo "</br>Identifiant et/ou mot de passe incorrect</br>";
-   } 
+if ($p=='activation')
+		$message=activUser();
+if ($p=='deconnect'){
+	session_unset();
+	session_destroy();
+	$message=array("success", "Vous êtes déconnecté");
 }
-} 
-?>
-</ul>
-</div>
-</fieldset>
+if ($p=='reset' && !isset($_GET['t'])){
+	$message=array("error", "Lien invalide. Veuillez réessayer");
+	$p="forgot";
+}
 
-<?php include 'footer.php';
+$logged = $_SESSION['is_login'] ?? false;
+
+include "header.php";
+switch ($p) {
+	case 'forgot':
+		include "forgot.php";	
+		break;	
+	case 'reset':
+		$token=htmlspecialchars($_GET['t']);
+		include "reset.php";	
+		break;	
+	case 'signup':
+		include "signup.php";	
+		break;
+	default:
+		include "home.php";	
+}
+include "footer.php";
