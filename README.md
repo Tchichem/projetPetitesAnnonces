@@ -5,24 +5,15 @@ Fonctionnalités prévues :
 
 Authentification 
 
--visiteur :    Compte | inscription
-             Annonces | lecture
+-visiteur : [COMPTE] inscription avec activation par mail,connexion |
+[ANNONCES] lecture annonces
               
--utilisateur : Compte | inscription
-                      | modification
-                      | suppression
-             Annonces | lecture
-                      | création
-                      | modification
-                      | suppression
-                      | répondre (mail chat)
+-utilisateur : [COMPTE] modification infos compte, suppression compte |
+[ANNONCES] lecture annonces, création annonces, modification, suppression, répondre (mail chat)
 
--admin :       Compte | passer admin
-              Membres | lecture complète
-                      | suppression
-             Annonces | lecture complète
-                      | modification complète
-                      | suppression complète
+-admin :       [COMPTE] passer admin |
+              [MEMBRES] lecture complète, suppression | 
+[ANNONCES] lecture complète, modification complète, suppression complète
 
 Annonces
 
