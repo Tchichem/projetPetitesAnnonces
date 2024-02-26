@@ -1,5 +1,5 @@
 # projetPetitesAnnonces
-Projet de site de petites annonces réalisé durant la formation PHP/MYSQL
+Projet de site de petites annonces à réaliser durant la formation PHP/MYSQL
 
 Fonctionnalités prévues : 
 
